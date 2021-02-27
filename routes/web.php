@@ -22,6 +22,18 @@ Route::get('/contact',  [EventController::class, 'open']); //open é gambiarra
 Route::post('/events', [EventController::class, 'store']); //store envia dados pro BD
 /*'index', 'create' e 'open' são nomes de ACTIONS*/
 
+/* 
+|--------------------------------------------------------------------------
+| Sobre a rota: "Route::get('/',  [EventController::class, 'index']);"
+|--------------------------------------------------------------------------
+|
+| Funciona mais ou menos desta maneria: o usuário digita o endereço "localhost:8000/" no seu navegador, por exemplo, para chamar a home page,
+| pois o "\" corresponde a home.
+| Depois disso, no EventController é disparada a action (ou function) definida na rota, que processa o que estiver dentro dela,
+| vai no BD se for preciso e pode passar pelo Model também.
+| Depois do processo acima, a view é retornada para o usuário.
+|  
+|*/
 
 Route::get('/contact', function () {
     return view('contact');
