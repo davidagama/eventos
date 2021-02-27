@@ -2,7 +2,7 @@
 
 @section('title', 'HDC Events')
 
-@section('content')
+@section('content') <!-- Palavras com @ antes são "diretivas do Blade" -->
 
 <div id="search-container" class="col-md-12">
     <h1>Busque um evento</h1>
