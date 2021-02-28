@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Event;
 
+// Geralmente os controllers concentram a maior parte da lógica da aplicação.
+
 class EventController extends Controller
 {
 
