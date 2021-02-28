@@ -14,7 +14,7 @@
     <h2>Próximos Eventos</h2>
     <p class="subtitle">Veja os eventos dos próximos dias</p>
     <div id="cards-container" class="row">
-        @foreach($events as $event) {{-- Quando uma variável precisa ser usada no na diretiva do Blade, NÃO é necessário as duas chaves {{}} --}}
+        @foreach($events as $event) {{-- Quando uma variável precisa ser usada na diretiva do Blade, NÃO é necessário as duas chaves {{}} --}}
         <div class="card col-md-3">
             <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}">
             <div class="card-body">
@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<!-- Este comentário aparece na inspeção de elemento (comentário do HTML) -->
-{{-- Este comentário NÃO aparece na inspeção de elemento (comentário do Blade) --}}
+<!-- Este comentário aparece na inspeção de elemento no navegador do usuário (comentário do HTML) -->
+{{-- Este comentário NÃO aparece na inspeção de elemento no navegador do usuário (comentário do Blade) --}}
 
 @endsection

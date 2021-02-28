@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Event;
 
-// Geralmente os controllers concentram a maior parte da lógica da aplicação.
+//Geralmente os controllers concentram a maior parte da lógica da aplicação.
 
 class EventController extends Controller
 {
@@ -39,8 +39,9 @@ class EventController extends Controller
         $event->private = $request->private;
         $event->description = $request->description;
 
-        //Image Upload
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
+        //Image Upload (trecho de código responsável por receber as imagens do formulário e enviar pro BD).
+        //As imagens são salvas no BD com um nome diferente do nome original delas.
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
             $requestImage = $request->image;
 
@@ -55,17 +56,16 @@ class EventController extends Controller
 
         $event->save();
 
+        //Este comando é responsavel por, após o envio dos dados do formulário pro BD,
+        //exibir a mensagem de "Evento criado com sucesso!" na home pro usuário.
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 
-    public function show($id) {
-        
+    public function show($id)
+    {
+
         $event = Event::findOrFail($id);
 
-        return view('events.show', ['event' => $event]); 
-
+        return view('events.show', ['event' => $event]);
     }
-
 }
-
-
