@@ -20,7 +20,7 @@ Route::get('/events/create',  [EventController::class, 'create']); //Create most
 Route::get('/events/{id}', [EventController::class, 'show']); //show mostra um dado específico do BD
 Route::get('/contact',  [EventController::class, 'open']); //open é gambiarra
 Route::post('/events', [EventController::class, 'store']); //store envia dados pro BD
-/*'index', 'create' e 'open' são nomes de ACTIONS*/
+/*'index', 'create', 'open', 'show' e 'store' são nomes de ACTIONS*/
 
 /* 
 |--------------------------------------------------------------------------
