@@ -34,7 +34,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        $event = new Event;
+        $event = new Event; // Nesta linha, foi instanciada a classe "Event" do nosso Model 
 
         $event->title = $request->title;
         $event->city = $request->city;
