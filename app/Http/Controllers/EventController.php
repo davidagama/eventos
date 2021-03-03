@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 
 //Geralmente os controllers concentram a maior parte da lógica da aplicação.
+//Tem o papel de enviar e esperar resposta do BD.
+//Controllers Também recebem e enviam alguma resposta para as views
 
 class EventController extends Controller
 {
