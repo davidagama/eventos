@@ -40,6 +40,7 @@ class EventController extends Controller
         $event->city = $request->city;
         $event->private = $request->private;
         $event->description = $request->description;
+        $event->items = $request->items;
 
         //Image Upload (trecho de código responsável por receber as imagens do formulário e enviar pro BD).
         //As imagens são salvas no BD com um nome diferente do nome original delas.

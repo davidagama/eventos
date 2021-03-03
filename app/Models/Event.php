@@ -11,4 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
+    
+    //Este trecho de código diz que os itens de infraestrutura da checkbox é um Array, não uma String 
+    protected $casts = [
+        'items' => 'array'
+    ];
 }
