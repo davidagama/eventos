@@ -7,7 +7,7 @@
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Crie o seu evento</h1>
     <form action="/events" method="POST" enctype="multipart/form-data">
-        @csrf {{-- Proteção do Laravel contra ataques a formulários --}}
+        @csrf {{-- Proteção do Laravel contra ataques a formulários. Essa diretiva é necessária para que o formulário seja capaz de enviar dados pro BD --}}
         <div class="form-group">
             <p><label for="image">Imagem do Evento:</label>
             <input type="file" id="image" name="image" class="form-control-file"></p>
