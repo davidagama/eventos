@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 
 Route::get('/',  [EventController::class, 'index']); //Index é usado para mostrar todos os registros do BD
-Route::get('/events/create',  [EventController::class, 'create']); //Create mostra o formulário de criar registros no BD
+Route::get('/events/create',  [EventController::class, 'create'])->middleware('auth'); //Create mostra o formulário de criar registros no BD
 Route::get('/events/{id}', [EventController::class, 'show']); //show mostra um dado específico do BD
 Route::get('/contact',  [EventController::class, 'open']); //open é gambiarra
 Route::post('/events', [EventController::class, 'store']); //store envia dados pro BD
@@ -42,6 +42,4 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
