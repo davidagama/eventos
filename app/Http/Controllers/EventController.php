@@ -98,4 +98,45 @@ class EventController extends Controller
         return view('events.dashboard', ['events' => $events]);
     }
 
+    public function destroy($id) {
+
+        Event::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+        
+    }
+    
+    //Nesta function, basicamente resgatamos dados do banco e enviamos para a view chamada edit para os dados serem atualizados
+    public function edit($id) {
+
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event' => $event]);
+
+    }
+
+    //Nesta function, os dados de um reg. são de fato atualizados no BD
+    public function update(Request $request) {
+
+        $data = $request->all();
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $ImageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/events'), $ImageName);
+
+            $data['image'] = $ImageName;
+        }
+
+        Event::findOrFail($request->id)->update($data);
+        
+        return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
+
+    }
+
 }

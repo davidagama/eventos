@@ -20,7 +20,13 @@ Route::get('/events/create',  [EventController::class, 'create'])->middleware('a
 Route::get('/events/{id}', [EventController::class, 'show']); //show mostra um dado específico do BD
 Route::get('/contact',  [EventController::class, 'open']); //open é gambiarra
 Route::post('/events', [EventController::class, 'store']); //store envia dados pro BD
-/*'index', 'create', 'open', 'show' e 'store' são nomes de ACTIONS*/
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('auth'); //O método deletar no Laravel se chama destroy
+Route::get('/events/edit/{id}', [EventController::class, 'edit'])->middleware('auth'); //edit é usado para puxar um reg. no BD para alteração no form
+Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth'); //update é usado para fazer de fato atualização do reg. no BD
+
+/*'index', 'create', 'open', 'show' e 'store' e outros são nomes de ACTIONS*/
+
+//->middleware('auth'); ---> Este trecho impede que usuários não cadastrados tenham acesso a estas rotas
 
 /* 
 |--------------------------------------------------------------------------

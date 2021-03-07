@@ -19,6 +19,8 @@ class Event extends Model
 
     protected $dates = ['date'];
 
+    protected $guarded = [];
+
     //Trecho responsável por dizer qual evento pertence a (belongsTo) qual usuário (usuário no singular (user))
     public function user() {
         return $this->belongsTo('App\Models\User');
